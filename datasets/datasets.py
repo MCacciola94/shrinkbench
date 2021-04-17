@@ -65,6 +65,7 @@ def dataset_builder(dataset, train=True, normalize=None, preproc=None, path=None
     Returns:
         torch.utils.data.Dataset -- Dataset object with transforms and normalization
     """
+    
     if preproc is not None:
         preproc += [transforms.ToTensor()]
         if normalize is not None:
@@ -78,7 +79,6 @@ def dataset_builder(dataset, train=True, normalize=None, preproc=None, path=None
         kwargs['train'] = train
 
     path = dataset_path(dataset, path)
-
     return _constructors[dataset](path, **kwargs)
 
 

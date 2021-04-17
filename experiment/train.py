@@ -216,6 +216,7 @@ class TrainingExperiment(Experiment):
                 ]
 
     def __repr__(self):
+        self.params['model']="lll"
         if not isinstance(self.params['model'], str) and isinstance(self.params['model'], torch.nn.Module):
             self.params['model'] = self.params['model'].__module__
         

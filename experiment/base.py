@@ -101,9 +101,11 @@ class Experiment(ABC):
         return self.uid
 
     def build_logging(self, metrics, path=None, csv=True, tensorboard=False):
+        
         if path is None:
             self.path = self.get_path()
         printc(f"Logging results to {self.path}", color='MAGENTA')
+        
         self.path.mkdir(exist_ok=True, parents=True)
         self.save_params()
 
